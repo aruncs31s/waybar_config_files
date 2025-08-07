@@ -10,7 +10,7 @@
 
     "modules-left": ["custom/launcher", "hyprland/workspaces", "hyprland/window"],
     "modules-center": ["custom/network_traffic"],
-    "modules-right": ["custom/updates", "backlight", "custom/keyboard-layout", "temperature", "cpu", "memory", "battery", "pulseaudio", "tray", "idle_inhibitor", "clock"],
+    "modules-right": ["custom/updates", "backlight", "custom/keyboard-layout", "temperature", "cpu", "memory", "battery", "mpd", "custom/mpd-prev", "custom/mpd-next", "pulseaudio", "tray", "idle_inhibitor", "clock"],
 
  // Modules configuration
 
@@ -100,6 +100,25 @@
         //"format": "&#x202b;{icon}&#x202c; {capacity}%",
         //"format-icons": ["ﱉ","ﱊ","ﱌ","ﱍ","ﱋ"]
     },
+    "mpd": {
+        "format": "{stateIcon} {title} {repeatIcon}",
+        "format-disconnected": "󰝛 Disconnected",
+        "format-stopped": "󰓛 Stopped",
+        "max-length": 25,
+        "tooltip": true,
+        "state-icons": {
+            "paused": "󰏤",
+            "playing": "󰐊"
+        },
+        "repeat-icons": {
+            "on": "󰑖",
+            "off": ""
+        },
+        "tooltip-format": "{artist} - {album} ({elapsedTime:%M:%S}/{totalTime:%M:%S})
+Left-click to toggle play/pause. Right-click to toggle repeat.",
+        "on-click": "mpc toggle",
+        "on-click-right": "mpc repeat"
+    },
       "network": {
         //"interface": "wlp0s20f3", // (Optional) To force the use of this interface  "format-wifi": "  {essid}",
         "format": "⚠Disabled",
@@ -130,6 +149,16 @@
       	"format":"⏻",
        	"on-click": "nwgbar",
       	"tooltip": false,
+   },
+   "custom/mpd-prev": {
+        "format": "󰒮",
+        "on-click": "mpc prev",
+        "tooltip": false
+   },
+   "custom/mpd-next": {
+        "format": "󰒭",
+        "on-click": "mpc next",
+        "tooltip": false
    },
    "custom/keyboard-layout": {
       	"format": " Cheat", // Icon: keyboard
